@@ -1,5 +1,11 @@
 # 🤖 Nepsidox-Self | Telegram Selfbot
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
+[![Stars](https://img.shields.io/github/stars/devirz/Nepsidox-Self?style=social)](https://github.com/devirz/Nepsidox-Self/stargazers)
+[![Forks](https://img.shields.io/github/forks/devirz/Nepsidox-Self?style=social)](https://github.com/devirz/Nepsidox-Self/fork)
+[![Last Commit](https://img.shields.io/github/last-commit/devirz/Nepsidox-Self.svg)](https://github.com/devirz/Nepsidox-Self/commits/main)
+
 A modern, modular, and easy-to-use Telegram selfbot written in Python.  
 **⚠️ Use responsibly! Selfbots can violate Telegram’s Terms of Service.**
 
@@ -57,13 +63,27 @@ The bot will start using the configuration provided in `config.py`.
 
 ---
 
-## 📁 Plugins & Extensions
+## 🧩 Adding Plugins
 
-- Drop your custom plugins in the `plugins/` directory.
-- Utilities and helpers are in the `utils/` directory.
-- Core logic is in the `core/` directory.
+Nepsidox-Self supports custom plugins for extending functionality!
 
-Browse all files and folders here: [Repository Content](https://github.com/devirz/Nepsidox-Self/contents/)
+1. **Create Your Plugin:**  
+   Write your own plugin as a `.py` file. Here’s a sample template:
+
+   ```python
+   # plugins/my_plugin.py
+   from telethon import events
+
+   @client.on(events.NewMessage(pattern=r"\.hello"))
+   async def handler(event):
+       await event.reply("Hello, world!")
+   ```
+
+2. **Add Plugin to the Plugins Folder:**  
+   Place your plugin file inside the `plugins/` directory.
+
+3. **Restart the Bot:**  
+   The bot auto-loads plugins from the `plugins/` folder at startup.
 
 ---
 
@@ -76,3 +96,7 @@ Browse all files and folders here: [Repository Content](https://github.com/devir
 ## 📝 License
 
 This project is open source and available under the MIT License.
+
+---
+
+**Made with ❤️ by [devirz](https://github.com/devirz)**
