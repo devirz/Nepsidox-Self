@@ -11,7 +11,6 @@ ghost_mode = {"active": False, "delay": 10, "original_name": None}
 
 @client.on(events.NewMessage(pattern=r"\.ghost (on|off)(?: (\d+))?", outgoing=True))
 async def toggle_ghost(event):
-    global ghost_mode
     action = event.pattern_match.group(1)
     delay = event.pattern_match.group(2)
 
