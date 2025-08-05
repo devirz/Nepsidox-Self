@@ -6,7 +6,7 @@ from PIL import Image
 import io
 import base64
 
-@client.on(events.NewMessage(pattern=r"\.stego(?:\s+(hide|extract))?", outgoing=True))
+@client.on(events.NewMessage(pattern=r"\.stego(?:\s+(hide|extract|process))?", outgoing=True))
 async def steganography_handler(event):
     operation = event.pattern_match.group(1)
     reply = await event.get_reply_message()
