@@ -13,7 +13,7 @@ ghost_mode = {"active": False, "delay": 10, "original_name": None}
 async def toggle_ghost(event):
     action = event.pattern_match.group(1)
     delay = event.pattern_match.group(2)
-
+    global ghost_mode
     if action == "on":
         ghost_mode["active"] = True
         ghost_mode["delay"] = int(delay) if delay else 10
@@ -39,8 +39,6 @@ async def toggle_ghost(event):
 # حذف خودکار پیام‌های ارسالی
 @events.register(events.NewMessage(outgoing=True))
 async def auto_delete(event: Message):
-    global ghost_mode
-
     if ghost_mode["active"]:
         await asyncio.sleep(ghost_mode["delay"])
         try:
